@@ -5,33 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kasus / Personal- & Reflexivpronomen</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      padding: 2rem;
+      margin: 0;
+      padding: 2rem 0;
       background: #ffffff;
-      flex-direction: column;
-      align-items: center;
     }
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     table {
       border-collapse: separate;
       border-spacing: 8px;
       table-layout: fixed;
-      width: 100%;
-      max-width: 960px;
+      width: 960px;
+      margin: 0 auto;
     }
+
     th, td {
       padding: 0.6rem;
       text-align: center;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      word-wrap: break-word;
+      white-space: nowrap;
     }
+
     th {
       font-size: 1.1rem;
       color: white;
     }
+
+    .title {
+      background-color: transparent;
+      color: black;
+      font-size: 1.4rem;
+      box-shadow: none;
+    }
+
+    .empty-header {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
     .header-nom { background-color: #e0a7c5; }
     .header-akk { background-color: #a6c9eb; }
     .header-dat { background-color: #b8e994; }
@@ -43,15 +66,19 @@
     .cell-dat { background-color: #d8f5c2; }
     .cell-refl-akk { background-color: #a3bce7; }
     .cell-refl-dat { background-color: #d2f0d7; }
+
     .cell-nom-akk {
       background: linear-gradient(to right, #f0c8da, #cddff4);
       color: black;
     }
+
     .cell-akk-dat {
       background: linear-gradient(to right, #cddff4, #d8f5c2);
       color: black;
     }
+
     .cell-refl {
+      background: linear-gradient(to right, #a3bce7, #d2f0d7);
       color: black;
     }
 
@@ -68,86 +95,92 @@
 
     td {
       border: 1px solid #ddd;
-      border-radius: 12px;
       background-clip: padding-box;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <table>
-    <thead>
-      <tr>
-        <th colspan="6" style="background-color:transparent; color:black; font-size:1.4rem; text-align:center; border-radius:none; box-shadow: none;">Kasus / Personal- & Reflexivpronomen</th>
-      </tr>
-      <tr>
-        <th style="background-color: transparent; box-shadow: none;"></th>
-        <th colspan="3" class="section-header">Personalpronomen</th>
-        <th colspan="2" class="section-header">Reflexivpronomen</th>
-      </tr>
-      <tr>
-        <th style="background-color: transparent; box-shadow: none;"></th>
-        <th class="header-nom">Nominativ</th>
-        <th class="header-akk">Akkusativ</th>
-        <th class="header-dat">Dativ</th>
-        <th class="header-refl-akk">Akkusativ</th>
-        <th class="header-refl-dat">Dativ</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="row-label">1. Person Sg.</td>
-        <td class="cell-nom">ich</td>
-        <td class="cell-akk">mich</td>
-        <td class="cell-dat">mir</td>
-        <td class="cell-refl-akk cell-refl">mich</td>
-        <td class="cell-refl-dat cell-refl">mir</td>
-      </tr>
-      <tr>
-        <td class="row-label">2. Person Sg.</td>
-        <td class="cell-nom">du</td>
-        <td class="cell-akk">dich</td>
-        <td class="cell-dat">dir</td>
-        <td class="cell-refl-akk cell-refl">dich</td>
-        <td class="cell-refl-dat cell-refl">dir</td>
-      </tr>
-      <tr>
-        <td class="group-label" rowspan="3">3. Person Sg.</td>
-        <td class="cell-nom">er</td>
-        <td class="cell-akk">ihn</td>
-        <td class="cell-dat">ihm</td>
-        <td class="cell-refl cell-refl-akk" colspan="2" rowspan="3" style="background: linear-gradient(to right, #a3bce7, #d2f0d7);">sich</td>
-      </tr>
-      <tr>
-        <td colspan="2" class="cell-nom-akk">sie</td>
-        <td class="cell-dat">ihr</td>
-      </tr>
-      <tr>
-        <td colspan="2" class="cell-nom-akk">es</td>
-        <td class="cell-dat">ihm</td>
-      </tr>
-      
-      <tr>
-        <td class="group-label">1. Person Pl.</td>
-        <td class="cell-nom">wir</td>
-        <td colspan="2" class="cell-akk-dat">uns</td>
-        <td class="cell-refl cell-refl-akk" colspan="2" style="background: linear-gradient(to right, #a3bce7, #d2f0d7);">uns</td>
-      </tr>
-      <tr>
-        <td class="group-label">2. Person Pl.</td>
-        <td class="cell-nom">ihr</td>
-        <td colspan="2" class="cell-akk-dat">euch</td>
-        <td class="cell-refl cell-refl-akk" colspan="2" style="background: linear-gradient(to right, #a3bce7, #d2f0d7);">euch</td>
-      </tr>
-      <tr>
-        <td class="group-label">3. Person Pl.</td>
-        <td colspan="2" class="cell-nom-akk">sie / Sie</td>
-        <td class="cell-dat">ihnen / Ihnen</td>
-        <td class="cell-refl cell-refl-akk" colspan="2" style="background: linear-gradient(to right, #a3bce7, #d2f0d7);">sich</td>
-      </tr>
-    </tbody>
-  </table>
-<footer style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #555;">
-  © Anne Felgentreu (06.2025)
-</footer>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="6" class="title">Kasus / Personal- & Reflexivpronomen</th>
+        </tr>
+        <tr>
+          <th class="empty-header"></th>
+          <th colspan="3" class="section-header">Personalpronomen</th>
+          <th colspan="2" class="section-header">Reflexivpronomen</th>
+        </tr>
+        <tr>
+          <th class="empty-header"></th>
+          <th class="header-nom">Nominativ</th>
+          <th class="header-akk">Akkusativ</th>
+          <th class="header-dat">Dativ</th>
+          <th class="header-refl-akk">Akkusativ</th>
+          <th class="header-refl-dat">Dativ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">1. Person Sg.</td>
+          <td class="cell-nom">ich</td>
+          <td class="cell-akk">mich</td>
+          <td class="cell-dat">mir</td>
+          <td class="cell-refl-akk">mich</td>
+          <td class="cell-refl-dat">mir</td>
+        </tr>
+        <tr>
+          <td class="row-label">2. Person Sg.</td>
+          <td class="cell-nom">du</td>
+          <td class="cell-akk">dich</td>
+          <td class="cell-dat">dir</td>
+          <td class="cell-refl-akk">dich</td>
+          <td class="cell-refl-dat">dir</td>
+        </tr>
+        <tr>
+          <td class="group-label" rowspan="3">3. Person Sg.</td>
+          <td class="cell-nom">er</td>
+          <td class="cell-akk">ihn</td>
+          <td class="cell-dat">ihm</td>
+          <td class="cell-refl" colspan="2" rowspan="3">sich</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="cell-nom-akk">sie</td>
+          <td class="cell-dat">ihr</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="cell-nom-akk">es</td>
+          <td class="cell-dat">ihm</td>
+        </tr>
+        <tr>
+          <td class="group-label">1. Person Pl.</td>
+          <td class="cell-nom">wir</td>
+          <td colspan="2" class="cell-akk-dat">uns</td>
+          <td class="cell-refl" colspan="2">uns</td>
+        </tr>
+        <tr>
+          <td class="group-label">2. Person Pl.</td>
+          <td class="cell-nom">ihr</td>
+          <td colspan="2" class="cell-akk-dat">euch</td>
+          <td class="cell-refl" colspan="2">euch</td>
+        </tr>
+        <tr>
+          <td class="group-label">3. Person Pl.</td>
+          <td colspan="2" class="cell-nom-akk">sie / Sie</td>
+          <td class="cell-dat">ihnen / Ihnen</td>
+          <td class="cell-refl" colspan="2">sich</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>© Anne Felgentreu (06.2025)</footer>
 </body>
 </html>
