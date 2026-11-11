@@ -18,12 +18,20 @@
       -webkit-overflow-scrolling: touch;
     }
 
+    /* Dieser Rahmen nimmt immer genau den Platz der skalierten Tabelle ein. */
+    .table-frame {
+      position: relative;
+      margin: 0 auto;
+      width: 720px;
+    }
+
     table {
       border-collapse: separate;
       border-spacing: 8px;
       table-layout: fixed;
       width: 720px;
-      margin: 0 auto;
+      margin: 0;
+      transform-origin: top left;
     }
 
     th, td {
@@ -103,80 +111,128 @@
   </style>
 </head>
 <body>
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th colspan="6" class="title">Kasus / Personal- & Reflexivpronomen</th>
-        </tr>
-        <tr>
-          <th class="empty-header"></th>
-          <th colspan="3" class="section-header">Personalpronomen</th>
-          <th colspan="2" class="section-header">Reflexivpronomen</th>
-        </tr>
-        <tr>
-          <th class="empty-header"></th>
-          <th class="header-nom">Nominativ</th>
-          <th class="header-akk">Akkusativ</th>
-          <th class="header-dat">Dativ</th>
-          <th class="header-refl-akk">Akkusativ</th>
-          <th class="header-refl-dat">Dativ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="row-label">1. Person Sg.</td>
-          <td class="cell-nom">ich</td>
-          <td class="cell-akk">mich</td>
-          <td class="cell-dat">mir</td>
-          <td class="cell-refl-akk">mich</td>
-          <td class="cell-refl-dat">mir</td>
-        </tr>
-        <tr>
-          <td class="row-label">2. Person Sg.</td>
-          <td class="cell-nom">du</td>
-          <td class="cell-akk">dich</td>
-          <td class="cell-dat">dir</td>
-          <td class="cell-refl-akk">dich</td>
-          <td class="cell-refl-dat">dir</td>
-        </tr>
-        <tr>
-          <td class="group-label" rowspan="3">3. Person Sg.</td>
-          <td class="cell-nom">er</td>
-          <td class="cell-akk">ihn</td>
-          <td class="cell-dat">ihm</td>
-          <td class="cell-refl" colspan="2" rowspan="3">sich</td>
-        </tr>
-        <tr>
-          <td colspan="2" class="cell-nom-akk">sie</td>
-          <td class="cell-dat">ihr</td>
-        </tr>
-        <tr>
-          <td colspan="2" class="cell-nom-akk">es</td>
-          <td class="cell-dat">ihm</td>
-        </tr>
-        <tr>
-          <td class="group-label">1. Person Pl.</td>
-          <td class="cell-nom">wir</td>
-          <td colspan="2" class="cell-akk-dat">uns</td>
-          <td class="cell-refl" colspan="2">uns</td>
-        </tr>
-        <tr>
-          <td class="group-label">2. Person Pl.</td>
-          <td class="cell-nom">ihr</td>
-          <td colspan="2" class="cell-akk-dat">euch</td>
-          <td class="cell-refl" colspan="2">euch</td>
-        </tr>
-        <tr>
-          <td class="group-label">3. Person Pl.</td>
-          <td colspan="2" class="cell-nom-akk">sie / Sie</td>
-          <td class="cell-dat">ihnen / Ihnen</td>
-          <td class="cell-refl" colspan="2">sich</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="table-container" id="table-container">
+    <div class="table-frame" id="table-frame">
+      <table id="pronoun-table">
+        <thead>
+          <tr>
+            <th colspan="6" class="title">Kasus / Personal- & Reflexivpronomen</th>
+          </tr>
+          <tr>
+            <th class="empty-header"></th>
+            <th colspan="3" class="section-header">Personalpronomen</th>
+            <th colspan="2" class="section-header">Reflexivpronomen</th>
+          </tr>
+          <tr>
+            <th class="empty-header"></th>
+            <th class="header-nom">Nominativ</th>
+            <th class="header-akk">Akkusativ</th>
+            <th class="header-dat">Dativ</th>
+            <th class="header-refl-akk">Akkusativ</th>
+            <th class="header-refl-dat">Dativ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">1. Person Sg.</td>
+            <td class="cell-nom">ich</td>
+            <td class="cell-akk">mich</td>
+            <td class="cell-dat">mir</td>
+            <td class="cell-refl-akk">mich</td>
+            <td class="cell-refl-dat">mir</td>
+          </tr>
+          <tr>
+            <td class="row-label">2. Person Sg.</td>
+            <td class="cell-nom">du</td>
+            <td class="cell-akk">dich</td>
+            <td class="cell-dat">dir</td>
+            <td class="cell-refl-akk">dich</td>
+            <td class="cell-refl-dat">dir</td>
+          </tr>
+          <tr>
+            <td class="group-label" rowspan="3">3. Person Sg.</td>
+            <td class="cell-nom">er</td>
+            <td class="cell-akk">ihn</td>
+            <td class="cell-dat">ihm</td>
+            <td class="cell-refl" colspan="2" rowspan="3">sich</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="cell-nom-akk">sie</td>
+            <td class="cell-dat">ihr</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="cell-nom-akk">es</td>
+            <td class="cell-dat">ihm</td>
+          </tr>
+          <tr>
+            <td class="group-label">1. Person Pl.</td>
+            <td class="cell-nom">wir</td>
+            <td colspan="2" class="cell-akk-dat">uns</td>
+            <td class="cell-refl" colspan="2">uns</td>
+          </tr>
+          <tr>
+            <td class="group-label">2. Person Pl.</td>
+            <td class="cell-nom">ihr</td>
+            <td colspan="2" class="cell-akk-dat">euch</td>
+            <td class="cell-refl" colspan="2">euch</td>
+          </tr>
+          <tr>
+            <td class="group-label">3. Person Pl.</td>
+            <td colspan="2" class="cell-nom-akk">sie / Sie</td>
+            <td class="cell-dat">ihnen / Ihnen</td>
+            <td class="cell-refl" colspan="2">sich</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <footer>© Anne Felgentreu (06.2025)</footer>
+
+  <script>
+    const container = document.getElementById('table-container');
+    const frame = document.getElementById('table-frame');
+    const table = document.getElementById('pronoun-table');
+
+    const tableWidth = 720;
+    let scale = 1;
+    let startDistance = 0;
+    let startScale = 1;
+
+    function distance(touches) {
+      const dx = touches[0].clientX - touches[1].clientX;
+      const dy = touches[0].clientY - touches[1].clientY;
+      return Math.hypot(dx, dy);
+    }
+
+    function applyScale() {
+      table.style.transform = `scale(${scale})`;
+      frame.style.width = `${tableWidth * scale}px`;
+      frame.style.height = `${table.offsetHeight * scale}px`;
+    }
+
+    container.addEventListener('touchstart', function (event) {
+      if (event.touches.length === 2) {
+        startDistance = distance(event.touches);
+        startScale = scale;
+      }
+    }, { passive: true });
+
+    container.addEventListener('touchmove', function (event) {
+      if (event.touches.length !== 2 || startDistance === 0) return;
+
+      event.preventDefault();
+
+      const nextScale = startScale * distance(event.touches) / startDistance;
+      scale = Math.min(1.5, Math.max(0.45, nextScale));
+      applyScale();
+    }, { passive: false });
+
+    container.addEventListener('touchend', function (event) {
+      if (event.touches.length < 2) startDistance = 0;
+    }, { passive: true });
+
+    applyScale();
+  </script>
 </body>
 </html>
